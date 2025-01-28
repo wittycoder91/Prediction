@@ -48,7 +48,7 @@ export default function Navbar(props) {
               />
             </Link>
           ) : (
-            <Link className="logo" to="#">
+            <Link className="logo" to="/">
               <span className="inline-block dark:hidden">
                 <img src={LogoDark} className="l-dark" height="24" alt="" />
                 <img src={LogoLight} className="l-light" height="24" alt="" />
