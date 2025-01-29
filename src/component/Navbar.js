@@ -249,7 +249,7 @@ export default function Navbar(props) {
                           Major Indices
                         </Link>
                       </li>
-                      <li
+                      {/* <li
                         className={manu === "/indices-realtime" ? "active" : ""}
                       >
                         <Link to="/indices-realtime" className="sub-menu-item">
@@ -284,7 +284,7 @@ export default function Navbar(props) {
                         <Link to="/nasdaq-future" className="sub-menu-item">
                           Nasdaq Futures
                         </Link>
-                      </li>
+                      </li> */}
                     </ul>
                   </li>
                   <li
@@ -327,7 +327,7 @@ export default function Navbar(props) {
                           Stock Screener
                         </Link>
                       </li>
-                      <li
+                      {/* <li
                         className={manu === "/stock-trending" ? "active" : ""}
                       >
                         <Link to="/stock-trending" className="sub-menu-item">
@@ -338,7 +338,7 @@ export default function Navbar(props) {
                         <Link to="/stock-ai" className="sub-menu-item">
                           Stocks Picket by AI
                         </Link>
-                      </li>
+                      </li> */}
                     </ul>
                   </li>
                   <li
@@ -391,7 +391,7 @@ export default function Navbar(props) {
                           US Treasure Yield Curve
                         </Link>
                       </li>
-                      <li
+                      {/* <li
                         className={manu === "/bonds-government" ? "active" : ""}
                       >
                         <Link to="/bonds-government" className="sub-menu-item">
@@ -424,7 +424,7 @@ export default function Navbar(props) {
                         <Link to="/bonds-credit" className="sub-menu-item">
                           World Credit Default Swap Rates (CDS)
                         </Link>
-                      </li>
+                      </li> */}
                     </ul>
                   </li>
                 </ul>
