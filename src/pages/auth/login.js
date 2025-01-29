@@ -16,7 +16,7 @@ export default function Login() {
       <div className="container z-3">
         <div className="flex justify-center">
           <div className="max-w-[400px] w-full m-auto p-6 bg-white dark:bg-slate-900 shadow-md dark:shadow-gray-700 rounded-md">
-            <Link to="/index">
+            <Link to="/">
               <img src={Icon} className="mx-auto" alt="" />
             </Link>
             <h5 className="my-6 text-xl font-semibold">Login</h5>

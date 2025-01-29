@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import ContactImage from "../assets/images/svg/contact.svg";
 import { FiHexagon, FiMapPin } from "react-icons/fi";
 import { BsTelephone } from "react-icons/bs";
 import { MdMailOutline } from "react-icons/md";
@@ -29,10 +28,6 @@ export default function Contact() {
       <section className="relative lg:py-24 py-16">
         <div className="container">
           <div className="grid md:grid-cols-12 grid-cols-1 items-center gap-[30px]">
-            <div className="lg:col-span-7 md:col-span-6">
-              <img src={ContactImage} alt="" />
-            </div>
-
             <div className="lg:col-span-5 md:col-span-6">
               <div className="lg:me-5">
                 <div className="bg-white dark:bg-slate-900 rounded-md shadow dark:shadow-gray-700 p-6">

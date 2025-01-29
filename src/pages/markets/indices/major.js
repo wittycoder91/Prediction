@@ -1,14 +1,48 @@
-import React from "react";
+import React, { useEffect, useRef, memo } from "react";
 
 export default function Major() {
+  const container = useRef();
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src =
+      "https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js";
+    script.type = "text/javascript";
+    script.async = true;
+    script.innerHTML = `
+        {
+          "autosize": true,
+          "symbol": "NASDAQ:AAPL",
+          "interval": "D",
+          "timezone": "Etc/UTC",
+          "theme": "light",
+          "style": "1",
+          "locale": "en",
+          "allow_symbol_change": true,
+          "calendar": false,
+          "support_host": "https://www.tradingview.com"
+        }`;
+    container.current.appendChild(script);
+  }, []);
+
   return (
-    <section className="relative table h-[800px] w-full py-32 lg:py-36">
-      <div className="absolute inset-0 bg-black opacity-60"></div>
-      <div className="container h-full flex items-center justify-center">
-        <h3 className="md:text-4xl text-3xl md:leading-normal leading-normal font-medium text-white">
-          Major Indices
-        </h3>
+    <div
+      className="tradingview-widget-container h-[100vh] w-full pt-[74px]"
+      ref={container}
+    >
+      <div
+        className="tradingview-widget-container__widget"
+        style={{ height: "calc(100% - 32px)", width: "100%" }}
+      ></div>
+      <div className="tradingview-widget-copyright">
+        <a
+          href="https://www.tradingview.com/"
+          rel="noopener nofollow"
+          target="_blank"
+        >
+          <span className="blue-text">Track all markets on TradingView</span>
+        </a>
       </div>
-    </section>
+    </div>
   );
 }
