@@ -1,65 +1,95 @@
 import React from "react";
+import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
+import { AgGridReact } from "ag-grid-react";
+import CanadaFlag from "../../../assets/images/flags/canada.svg";
 
-const data = [
-  {
-    symbol: "symbol",
-    country: "Canada",
-    bondtype: "Type 1",
-    price: 6.19,
-    volume: 2.28,
-    ytm: 6.51,
-    coupon: 15.6,
-    maturity: "2025-01-29",
-  },
-  {
-    symbol: "symbol",
-    country: "Canada",
-    bondtype: "Type 1",
-    price: 6.19,
-    volume: 2.28,
-    ytm: 6.51,
-    coupon: 15.6,
-    maturity: "2025-01-29",
-  },
-  {
-    symbol: "symbol",
-    country: "Canada",
-    bondtype: "Type 1",
-    price: 6.19,
-    volume: 2.28,
-    ytm: 6.51,
-    coupon: 15.6,
-    maturity: "2025-01-29",
-  },
-  {
-    symbol: "symbol",
-    country: "Canada",
-    bondtype: "Type 1",
-    price: 6.19,
-    volume: 2.28,
-    ytm: 6.51,
-    coupon: 15.6,
-    maturity: "2025-01-29",
-  },
-  {
-    symbol: "symbol",
-    country: "Canada",
-    bondtype: "Type 1",
-    price: 6.19,
-    volume: 2.28,
-    ytm: 6.51,
-    coupon: 15.6,
-    maturity: "2025-01-29",
-  },
-];
-const selectOption = [
-  "Corporate Bonds",
-  "ESG Bonds",
-  "Government Bonds",
-  "Electronics",
-];
+ModuleRegistry.registerModules([AllCommunityModule]);
 
 export default function Treasury() {
+  const rowData = [
+    {
+      symbol: "symbol",
+      country: "Canada",
+      bondtype: "Type 1",
+      price: 80,
+      volume: 2.28,
+      ytm: 6.51,
+      coupon: 15.6,
+      maturity: "2025-01-29",
+    },
+    {
+      symbol: "symbol",
+      country: "Canada",
+      bondtype: "Type 1",
+      price: 25.4,
+      volume: 2.28,
+      ytm: 6.51,
+      coupon: 15.6,
+      maturity: "2025-01-29",
+    },
+    {
+      symbol: "symbol",
+      country: "Canada",
+      bondtype: "Type 1",
+      price: 6.19,
+      volume: 2.28,
+      ytm: 6.51,
+      coupon: 15.6,
+      maturity: "2025-01-29",
+    },
+    {
+      symbol: "symbol",
+      country: "Canada",
+      bondtype: "Type 1",
+      price: 0.6,
+      volume: 2.28,
+      ytm: 6.51,
+      coupon: 15.6,
+      maturity: "2025-01-29",
+    },
+    {
+      symbol: "symbol",
+      country: "Canada",
+      bondtype: "Type 1",
+      price: 6.19,
+      volume: 2.28,
+      ytm: 6.51,
+      coupon: 15.6,
+      maturity: "2025-01-29",
+    },
+  ];
+  const columnDefs = [
+    { field: "symbol" },
+    {
+      field: "country",
+      cellRenderer: (params) => (
+        <div className="flex items-center gap-2">
+          <img src={CanadaFlag} alt="Canada Flag" className="w-5 h-5" />
+          <span>{params.value}</span>
+        </div>
+      ),
+    },
+    {
+      field: "bondtype",
+      headerName: "Bond Type",
+    },
+    { field: "price", headerName: "Price (%)", filter: "agNumberColumnFilter" },
+    { field: "volume", filter: "agNumberColumnFilter" },
+    { field: "ytm", headerName: "YTM (%)", filter: "agNumberColumnFilter" },
+    {
+      field: "coupon",
+      headerName: "Coupon (%)",
+      filter: "agNumberColumnFilter",
+    },
+    { field: "maturity", headerName: "Maturity Date" },
+  ];
+  const selectOption = [
+    "Corporate Bonds",
+    "ESG Bonds",
+    "Government Bonds",
+    "Electronics",
+  ];
+
   return (
     <section className="relative table w-full py-28">
       <div className="container mx-auto p-4">
@@ -75,34 +105,15 @@ export default function Treasury() {
             ))}
           </select>
         </div>
-        <table className="w-full border border-gray-300 shadow-sm">
-          <thead>
-            <tr>
-              <th className="p-2 text-start">Symbol</th>
-              <th className="p-2 text-start">Country</th>
-              <th className="p-2 text-start">Bond Type</th>
-              <th className="p-2 text-start">Price (%)</th>
-              <th className="p-2 text-start">Volume</th>
-              <th className="p-2 text-start">YTM (%)</th>
-              <th className="p-2 text-start">Coupon (%)</th>
-              <th className="p-2 text-start">Maturity Date</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((item, index) => (
-              <tr key={index} className="border-t border-gray-300">
-                <td className="p-2">{item.symbol}</td>
-                <td className="p-2">{item.country}</td>
-                <td className="p-2">{item.bondtype}</td>
-                <td className="p-2">{item.price}</td>
-                <td className="p-2">{item.volume}</td>
-                <td className="p-2">{item.ytm}</td>
-                <td className="p-2">{item.coupon}</td>
-                <td className="p-2">{item.maturity}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div style={{ height: 500 }}>
+          <AgGridReact
+            rowData={rowData}
+            columnDefs={columnDefs}
+            pagination={true}
+            paginationPageSize={10}
+            paginationPageSizeSelector={[10, 25, 50]}
+          />
+        </div>
       </div>
     </section>
   );
