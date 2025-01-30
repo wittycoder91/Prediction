@@ -1,92 +1,134 @@
-import React from "react";
 import { FaDownload } from "react-icons/fa";
+import ReactTableUI from "react-table-ui";
+import React, { useMemo, useRef } from "react";
 
-import CanadaFlag from "../../../assets/images/flags/canada.svg";
-const data = [
-  {
-    country: "Turkey",
-    last: 265.04,
-    chg: -6.19,
-    chgPerc: -2.28,
-    oneMonth: 6.51,
-    oneYear: -15.6,
-  },
-  {
-    country: "Italy",
-    last: 59.91,
-    chg: -0.4,
-    chgPerc: -0.66,
-    oneMonth: 1.85,
-    oneYear: -20.4,
-  },
-  {
-    country: "US",
-    last: 32.81,
-    chg: -0.03,
-    chgPerc: -0.09,
-    oneMonth: 14.0,
-    oneYear: -19.05,
-  },
-  {
-    country: "UK",
-    last: 23.92,
-    chg: -0.3,
-    chgPerc: -1.24,
-    oneMonth: 12.72,
-    oneYear: -30.18,
-  },
-  {
-    country: "Spain",
-    last: 34.98,
-    chg: -0.35,
-    chgPerc: -0.99,
-    oneMonth: 3.46,
-    oneYear: -20.17,
-  },
-  {
-    country: "Brazil",
-    last: 187.21,
-    chg: -5.09,
-    chgPerc: -2.65,
-    oneMonth: 0.1,
-    oneYear: 41.19,
-  },
-  {
-    country: "Australia",
-    last: 10.17,
-    chg: 0.01,
-    chgPerc: 0.1,
-    oneMonth: 0.49,
-    oneYear: -37.3,
-  },
-  {
-    country: "Canada",
-    last: 39.6,
-    chg: 0.0,
-    chgPerc: 0.0,
-    oneMonth: 0.0,
-    oneYear: 0.0,
-  },
-  {
-    country: "Mexico",
-    last: 127.59,
-    chg: -4.02,
-    chgPerc: -3.05,
-    oneMonth: 1.1,
-    oneYear: 35.68,
-  },
-  {
-    country: "France",
-    last: 39.88,
-    chg: -1.03,
-    chgPerc: -2.52,
-    oneMonth: 7.96,
-    oneYear: 66.17,
-  },
-];
 const selectOption = ["Normal1", "Normal2", "Normal3"];
 
 export default function IndicesFutures() {
+  const data = useMemo(
+    () => [
+      {
+        country: "Canada",
+        last: 265.04,
+        chg: -6.19,
+        chgPercent: -2.28,
+        oneMonth: 6.51,
+        oneYear: -15.6,
+        time: "15/01",
+      },
+      {
+        country: "Canada",
+        last: 59.91,
+        chg: -0.4,
+        chgPercent: -0.66,
+        oneMonth: 1.85,
+        oneYear: -20.4,
+        time: "15/01",
+      },
+      {
+        country: "Canada",
+        last: 32.81,
+        chg: -0.03,
+        chgPercent: -0.09,
+        oneMonth: 14.0,
+        oneYear: -19.05,
+        time: "15/01",
+      },
+      {
+        country: "Canada",
+        last: 23.92,
+        chg: -0.3,
+        chgPercent: -1.24,
+        oneMonth: 12.72,
+        oneYear: -30.18,
+        time: "15/01",
+      },
+      {
+        country: "Canada",
+        last: 34.98,
+        chg: -0.35,
+        chgPercent: -0.99,
+        oneMonth: 3.46,
+        oneYear: -20.17,
+        time: "15/01",
+      },
+      {
+        country: "Canada",
+        last: 187.21,
+        chg: -5.09,
+        chgPercent: -2.65,
+        oneMonth: 0.1,
+        oneYear: 41.19,
+        time: "15/01",
+      },
+      {
+        country: "Canada",
+        last: 23.92,
+        chg: -0.3,
+        chgPercent: -1.24,
+        oneMonth: 12.72,
+        oneYear: -30.18,
+        time: "15/01",
+      },
+      {
+        country: "Canada",
+        last: 34.98,
+        chg: -0.35,
+        chgPercent: -0.99,
+        oneMonth: 3.46,
+        oneYear: -20.17,
+        time: "15/01",
+      },
+      {
+        country: "Canada",
+        last: 187.21,
+        chg: -5.09,
+        chgPercent: -2.65,
+        oneMonth: 0.1,
+        oneYear: 41.19,
+        time: "15/01",
+      },
+      {
+        country: "Canada",
+        last: 10.17,
+        chg: 0.01,
+        chgPercent: 0.1,
+        oneMonth: 0.49,
+        oneYear: -37.3,
+        time: "15/01",
+      },
+      {
+        country: "Canada",
+        last: 39.6,
+        chg: 0.0,
+        chgPercent: 0.0,
+        oneMonth: 0.0,
+        oneYear: 0.0,
+        time: "15/01",
+      },
+      {
+        country: "Canada",
+        last: 127.59,
+        chg: -4.02,
+        chgPercent: -3.05,
+        oneMonth: 1.1,
+        oneYear: 35.68,
+        time: "15/01",
+      },
+      {
+        country: "Canada",
+        last: 39.88,
+        chg: -1.03,
+        chgPercent: -2.52,
+        oneMonth: 7.96,
+        oneYear: 66.17,
+        time: "15/01",
+      },
+    ],
+    []
+  );
+  const tableInstanceRef = useRef(null);
+
   return (
     <section className="relative table w-full py-28">
       <div className="container mx-auto p-4">
@@ -103,57 +145,11 @@ export default function IndicesFutures() {
           </select>
           <FaDownload />
         </div>
-        <table className="w-full border border-gray-300 shadow-sm">
-          <thead>
-            <tr>
-              <th className="p-2 text-start">Country</th>
-              <th className="p-2 text-start">Last</th>
-              <th className="p-2 text-start">Chg.</th>
-              <th className="p-2 text-start">Chg. %</th>
-              <th className="p-2 text-start">1 Month</th>
-              <th className="p-2 text-start">1 Year</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.map((item, index) => (
-              <tr key={index} className="border-t border-gray-300">
-                <td className="flex flex-row gap-2 items-center p-2">
-                  <img src={CanadaFlag} alt="" width={30} />
-                  {item.country} CDS 5 Years
-                </td>
-                <td className="p-2">{item.last.toFixed(2)}</td>
-                <td
-                  className={`p-2 ${
-                    item.chg < 0 ? "text-red-500" : "text-green-500"
-                  }`}
-                >
-                  {item.chg.toFixed(2)}
-                </td>
-                <td
-                  className={`p-2 ${
-                    item.chgPerc < 0 ? "text-red-500" : "text-green-500"
-                  }`}
-                >
-                  {item.chgPerc.toFixed(2)}%
-                </td>
-                <td
-                  className={`p-2 ${
-                    item.oneMonth < 0 ? "text-red-500" : "text-green-500"
-                  }`}
-                >
-                  {item.oneMonth.toFixed(2)}%
-                </td>
-                <td
-                  className={`p-2 ${
-                    item.oneYear < 0 ? "text-red-500" : "text-green-500"
-                  }`}
-                >
-                  {item.oneYear.toFixed(2)}%
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <ReactTableUI
+          title="CDS Table"
+          data={data}
+          tableInstanceRef={tableInstanceRef}
+        />
       </div>
     </section>
   );
