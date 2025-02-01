@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import LogoLight from "../assets/images/logo-light.png";
+import LogoLight from "../assets/logos/menu-logo-light.png";
+import LogoDark from "../assets/logos/menu-logo-dark.png";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import {
   FiDribbble,
@@ -26,7 +27,18 @@ export default function Footer() {
                 <div className="grid md:grid-cols-12 grid-cols-1 gap-[30px]">
                   <div className="lg:col-span-4 md:col-span-12">
                     <Link to="#" className="text-[22px] focus:outline-none">
-                      <img src={LogoLight} alt="" />
+                      <img
+                        src={LogoLight}
+                        alt=""
+                        className="l-dark hidden dark:block"
+                        width={100}
+                      />
+                      <img
+                        src={LogoDark}
+                        alt=""
+                        className="l-light block dark:hidden"
+                        width={100}
+                      />
                     </Link>
                     <p className="mt-6 text-gray-300">
                       A great plateform to buy, sell and rent your properties

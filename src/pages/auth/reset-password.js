@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Icon from "../../assets/images/logo-icon-64.png";
+import LogoLight from "../../assets/logos/menu-logo-light.png";
+import LogoDark from "../../assets/logos/menu-logo-dark.png";
 import BackgroudImage from "../../assets/images/bg/01.jpg";
 
 export default function ResetPassword() {
@@ -15,9 +16,20 @@ export default function ResetPassword() {
 
       <div className="container z-3">
         <div className="flex justify-center">
-          <div className="max-w-[400px] w-full m-auto p-6 bg-white dark:bg-slate-900 shadow-md dark:shadow-gray-700 rounded-md">
+          <div className="flex flex-col items-center max-w-[400px] w-full m-auto p-6 bg-white dark:bg-slate-900 shadow-md dark:shadow-gray-700 rounded-md">
             <Link to="/">
-              <img src={Icon} className="mx-auto" alt="" />
+              <img
+                src={LogoDark}
+                className="inline-block dark:hidden"
+                width="100"
+                alt=""
+              />
+              <img
+                src={LogoLight}
+                width="100"
+                className="hidden dark:inline-block"
+                alt=""
+              />
             </Link>
             <h5 className="my-6 text-xl font-semibold">Reset Your Password</h5>
             <div className="grid grid-cols-1">

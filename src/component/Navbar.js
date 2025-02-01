@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import LogoLight from "../assets/images/logo-light.png";
-import LogoDark from "../assets/images/logo-dark.png";
+import LogoLight from "../assets/logos/menu-logo-light.png";
+import LogoDark from "../assets/logos/menu-logo-dark.png";
 
 import { FiUser } from "react-icons/fi";
 
@@ -40,9 +40,15 @@ export default function Navbar(props) {
           {/* <!-- Logo container--> */}
           {navClass === "" || navClass === undefined ? (
             <Link className="logo" to="/">
-              <img src={LogoDark} className="inline-block dark:hidden" alt="" />
+              <img
+                src={LogoDark}
+                className="inline-block dark:hidden"
+                width="100"
+                alt=""
+              />
               <img
                 src={LogoLight}
+                width="100"
                 className="hidden dark:inline-block"
                 alt=""
               />
@@ -50,12 +56,12 @@ export default function Navbar(props) {
           ) : (
             <Link className="logo" to="/">
               <span className="inline-block dark:hidden">
-                <img src={LogoDark} className="l-dark" height="24" alt="" />
-                <img src={LogoLight} className="l-light" height="24" alt="" />
+                <img src={LogoDark} className="l-dark" width="100" alt="" />
+                <img src={LogoLight} className="l-light" width="100" alt="" />
               </span>
               <img
                 src={LogoLight}
-                height="24"
+                width="100"
                 className="hidden dark:inline-block"
                 alt=""
               />
@@ -158,6 +164,7 @@ export default function Navbar(props) {
                       subManu === "/markets-item" ? "" : "/markets-item"
                     );
                   }}
+                  className="!pl-[8px]"
                 >
                   Markets
                 </Link>
@@ -433,7 +440,7 @@ export default function Navbar(props) {
               <li className={manu === "/my-watchlist" ? "active" : ""}>
                 <Link
                   to="/my-watchlist"
-                  className="sub-menu-item"
+                  className="sub-menu-item !pl-[8px]"
                   onClick={() => setToggle(false)}
                 >
                   My Watchlist
@@ -443,7 +450,7 @@ export default function Navbar(props) {
               <li className={manu === "/news" ? "active" : ""}>
                 <Link
                   to="/news"
-                  className="sub-menu-item"
+                  className="sub-menu-item !pl-[8px]"
                   onClick={() => setToggle(false)}
                 >
                   News
@@ -453,7 +460,7 @@ export default function Navbar(props) {
               <li className={manu === "/analysis" ? "active" : ""}>
                 <Link
                   to="/analysis"
-                  className="sub-menu-item"
+                  className="sub-menu-item !pl-[8px]"
                   onClick={() => setToggle(false)}
                 >
                   Analysis
