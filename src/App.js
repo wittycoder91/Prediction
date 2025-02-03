@@ -25,6 +25,7 @@ import BondsBond from "./pages/markets/bonds/bond";
 import BondsForward from "./pages/markets/bonds/forward";
 import BondsCredit from "./pages/markets/bonds/credit";
 
+import AIFundsManager from "./pages/aifunds";
 import WatchList from "./pages/watchlist";
 import News from "./pages/news";
 import Analysis from "./pages/analysis";
@@ -83,6 +84,7 @@ function AppContent() {
             <Route path="/bonds-bond" element={<BondsBond />} />
             <Route path="/bonds-forward" element={<BondsForward />} />
             <Route path="/bonds-credit" element={<BondsCredit />} />
+            <Route path="/ai-funds-manager" element={<AIFundsManager />} />
             <Route path="/my-watchlist" element={<WatchList />} />
             <Route path="/news" element={<News />} />
             <Route path="/analysis" element={<Analysis />} />

@@ -1,4 +1,5 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
 import { AgGridReact } from "ag-grid-react";
 
@@ -138,6 +139,27 @@ export default function Screen() {
     "Government Bonds",
     "Electronics",
   ];
+
+  useEffect(() => {
+    getStockDatas();
+  }, []);
+
+  const getStockDatas = async () => {
+    try {
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/quotes`
+      );
+
+      console.log(response.data);
+      // if (response.data.success) {
+      //   console.log
+      // } else {
+      //   showErrorMsg(response.data.message)
+      // }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <section className="relative table w-full py-28">

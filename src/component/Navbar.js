@@ -93,7 +93,7 @@ export default function Navbar(props) {
             <li className="inline ps-1 mb-0">
               <Link
                 to="/commission"
-                className="px-3 btn bg-yellow-400 border-green-600 dark:border-green-600 rounded-2xl text-black"
+                className="px-3 text-sm btn bg-yellow-400 border-green-600 dark:border-green-600 rounded-2xl text-black"
               >
                 Get 50% 0ff
               </Link>
@@ -110,7 +110,7 @@ export default function Navbar(props) {
               <li className="sm:inline ps-1 mb-0 hidden">
                 <Link
                   to="/auth-signup"
-                  className="px-5 btn bg-green-600 hover:bg-green-700 border-green-600 dark:border-green-600 text-white rounded-full"
+                  className="px-3 text-sm btn bg-green-600 hover:bg-green-700 border-green-600 dark:border-green-600 text-white rounded-full"
                 >
                   Signup
                 </Link>
@@ -164,7 +164,7 @@ export default function Navbar(props) {
                       subManu === "/markets-item" ? "" : "/markets-item"
                     );
                   }}
-                  className="!pl-[8px]"
+                  className="!pl-[0px] !pr-[8px] lg:!pr-4 !text-base"
                 >
                   Markets
                 </Link>
@@ -436,41 +436,57 @@ export default function Navbar(props) {
                   </li>
                 </ul>
               </li>
+              {/* AI Funds Manager Menu */}
+              <li
+                className={`!ml-0 ${
+                  manu === "/ai-funds-manager" ? "active" : ""
+                }`}
+              >
+                <Link
+                  to="/ai-funds-manager"
+                  className="sub-menu-item !pl-[0px] !pr-[8px] lg:!pr-4 !text-base"
+                  onClick={() => setToggle(false)}
+                >
+                  AI Funds Manager
+                </Link>
+              </li>
               {/* My Watchlist */}
-              <li className={manu === "/my-watchlist" ? "active" : ""}>
+              <li
+                className={`!ml-0 ${manu === "/my-watchlist" ? "active" : ""}`}
+              >
                 <Link
                   to="/my-watchlist"
-                  className="sub-menu-item !pl-[8px]"
+                  className="sub-menu-item !pl-[0px] !pr-[8px] lg:!pr-4 !text-base"
                   onClick={() => setToggle(false)}
                 >
                   My Watchlist
                 </Link>
               </li>
               {/* News Menu */}
-              <li className={manu === "/news" ? "active" : ""}>
+              <li className={`!ml-0 ${manu === "/news" ? "active" : ""}`}>
                 <Link
                   to="/news"
-                  className="sub-menu-item !pl-[8px]"
+                  className="sub-menu-item !pl-[0px] !pr-[8px] lg:!pr-4 !text-base"
                   onClick={() => setToggle(false)}
                 >
                   News
                 </Link>
               </li>
               {/* Analysis Menu */}
-              <li className={manu === "/analysis" ? "active" : ""}>
+              <li className={`!ml-0 ${manu === "/analysis" ? "active" : ""}`}>
                 <Link
                   to="/analysis"
-                  className="sub-menu-item !pl-[8px]"
+                  className="sub-menu-item !pl-[0px] !pr-[8px] lg:!pr-4 !text-base"
                   onClick={() => setToggle(false)}
                 >
                   Analysis
                 </Link>
               </li>
               {/* Charts Menu */}
-              <li className={manu === "/charts" ? "active" : ""}>
+              <li className={`!ml-0 ${manu === "/charts" ? "active" : ""}`}>
                 <Link
                   to="/charts"
-                  className="sub-menu-item"
+                  className="sub-menu-item !pl-[0px] !pr-[8px] lg:!pr-4 !text-base"
                   onClick={() => setToggle(false)}
                 >
                   Charts
